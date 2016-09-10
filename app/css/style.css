@@ -1,1 +1,23 @@
 /* Empty. Add your own CSS if you like */
+
+.login-view-logo {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.gold-background {
+  background-color: #c0950d;
+  color: #fff;
+}
+.gold-background:hover {
+  background-color: #98760a;
+  color: #fff;
+}
+.articles-icon-size {
+  font-size: 80px;
+  position: absolute;
+  left: 15px;
+  height: 80px;
+  width: 80px;
+}
