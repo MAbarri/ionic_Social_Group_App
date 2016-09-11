@@ -1,8 +1,8 @@
 <ion-view view-title="Messaging">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" ng-click="openChatRoom(chat)">
-        <img ng-src="{{chat.face}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in conversations" type="item-text-wrap" ng-click="openChatRoom(chat)">
+        <img ng-src="main/assets/images/{{chat.face}}.png">
         <h2>{{chat.name}}</h2>
         <p>{{chat.lastText}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
