@@ -64,15 +64,15 @@ module.exports = function (grunt) {
         tasks: ['wiredep', 'newer:copy:app']
       },
       html: {
-        files: ['<%= yeoman.app %>/**/*.html'],
+        files: ['laGentilessApp/app/**/*.html'],
         tasks: ['newer:copy:app']
       },
       js: {
-        files: ['<%= yeoman.app %>/<%= yeoman.scripts %>/**/*.js'],
+        files: ['laGentilessApp/app/**/**/*.js'],
         tasks: ['newer:copy:app', 'newer:jshint:all']
       },
       styles: {
-        files: ['<%= yeoman.app %>/<%= yeoman.styles %>/**/*.css'],
+        files: ['laGentilessApp/app/**/**/*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer', 'newer:copy:tmp']
       },
       gruntfile: {
@@ -157,7 +157,7 @@ module.exports = function (grunt) {
       }
     },
 
-    
+
 
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
@@ -513,7 +513,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-  grunt.registerTask('coverage', 
+  grunt.registerTask('coverage',
     ['karma:continuous',
     'connect:coverage:keepalive'
   ]);

@@ -28,14 +28,16 @@ angular.module('starter.controllers', [])
     console.log(item);
     if(item.email && item.pwdForLogin)
     {
-      $state.go('tab.newsfeed')
+      $state.go('tab.newsfeed')      
     }
   };
   })
   .controller('NewsFeedCtrl', function($scope) {})
 
 .controller('MessagingCtrl', function($scope, Messaging) {
-  $scope.chats = Messaging.all();
+  $scope.chats = Messaging.all().then(function(resp){
+    console.log(resp);
+  });
   $scope.openChatRoom = function(roomId) {
     $state.go('tab.chat-detail', {
       roomId: roomId
