@@ -3,6 +3,8 @@ angular.module('main', [
     'ionic',
     'ngCordova',
     'ui.router',
+    'monospaced.elastic',
+    'angularMoment'
     // TODO: load other modules selected during generation
   ])
   .config(function($stateProvider, $urlRouterProvider) {
