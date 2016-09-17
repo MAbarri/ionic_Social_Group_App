@@ -20,13 +20,13 @@ angular.module('main')
 
     return {
       all: function () {
-        return $http.get('http://192.168.1.6:3003/cars');
+        return $http.get('http://192.168.1.3:3003/chats');
       },
       remove: function (chatId) {
-        return $http.delete('http://192.168.1.6:3003/cars/' + chatId);
+        return $http.delete('http://192.168.1.3:3003/chats' + chatId);
       },
       get: function (chatId) {
-        return $http.get('http://192.168.1.6:3003/cars/' + chatId);
+        return $http.get('http://192.168.1.3:3003/chats' + chatId);
       }
     };
 

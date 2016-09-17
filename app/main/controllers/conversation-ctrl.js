@@ -1,9 +1,9 @@
 'use strict';
 angular.module('main')
   .controller('conversationCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$ionicActionSheet',
-    '$ionicPopup', '$timeout', '$ionicScrollDelegate', 'conversationService', '$interval',
+    '$ionicPopup', '$timeout', '$ionicScrollDelegate', 'conversationService', '$interval', '$log',
     function($scope, $rootScope, $state, $stateParams, $ionicActionSheet,
-      $ionicPopup, $timeout, $ionicScrollDelegate, conversationService, $interval) {
+      $ionicPopup, $timeout, $ionicScrollDelegate, conversationService, $interval, $log) {
 
       $scope.doneLoading = false;
 
@@ -28,7 +28,9 @@ angular.module('main')
           // here you could check for new messages if your app doesn't use push notifications or user disabled them
         }, 20000);
       });
-      
+      $scope.$on('$ionicView.beforeEnter', function(event, viewData) {
+        viewData.enableBack = true;
+      });
       // mock acquiring data via $stateParams
       $scope.toUser = {
         _id: '534b8e5aaa5e7afc1b23e69b',
@@ -43,23 +45,6 @@ angular.module('main')
         username: 'Marty'
       };
 
-      // $scope.messages = [{
-      //   userId: '534b8e5aaa5e7afc1b23e69b',
-      //   text: 'hi man',
-      //   date: new Date()
-      // }, {
-      //   userId: '534b8e5aaa5e7afc1b23e69b',
-      //   text: 'duuuuuuuuuuuuude',
-      //   date: new Date()
-      // }, {
-      //   userId: '534b8fb2aa5e7afc1b23e69c',
-      //   text: 'ssup homie',
-      //   date: new Date()
-      // }, {
-      //   userId: '534b8e5aaa5e7afc1b23e69b',
-      //   text: 'u doing good ?',
-      //   date: new Date()
-      // }];
 
       function getMessages() {
         // the service is mock but you would probably pass the toUser's GUID here
@@ -67,7 +52,7 @@ angular.module('main')
           toUserId: $scope.toUser._id
         }).then(function(data) {
           $scope.doneLoading = true;
-          $scope.messages = data.messages;
+          $scope.messages = data;
 
           $timeout(function() {
             viewScroll.scrollBottom();
@@ -118,7 +103,7 @@ angular.module('main')
       }
       $scope.sendMessage = function(sendMessageForm) {
         var message = {
-          toId: $scope.toUser._id,
+          toId: $scope.toUser.id,
           text: $scope.input.message
         };
 
@@ -127,7 +112,6 @@ angular.module('main')
         // for some reason the one time blur event is not firing in the browser but does on devices
         keepKeyboardOpen();
 
-        //MockService.sendMessage(message).then(function(data) {
         $scope.input.message = '';
 
         message._id = new Date().getTime(); // :~)
@@ -136,24 +120,28 @@ angular.module('main')
         message.userId = $scope.user._id;
         message.pic = $scope.user.picture;
 
-        $scope.messages.push(message);
+        conversationService.sendMessage(message).then(function(data) {
+          $scope.messages.push(message);
 
-        $timeout(function() {
-          keepKeyboardOpen();
-          viewScroll.scrollBottom(true);
-        }, 0);
+          $timeout(function() {
+            keepKeyboardOpen();
+            viewScroll.scrollBottom(true);
+          }, 0);
 
-        $timeout(function() {
-          $scope.messages.push({
-            userId: '534b8e5aaa5e7afc1b23e69b',
-            date: new Date(),
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, se.'
-          });
-          keepKeyboardOpen();
-          viewScroll.scrollBottom(true);
-        }, 2000);
+          $timeout(function() {
+            message = {
+              userId: '534b8e5aaa5e7afc1b23e69b',
+              date: new Date(),
+              text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, se.'
+            };
+            conversationService.sendMessage(message).then(function(data) {
+              $scope.messages.push(message);
+              keepKeyboardOpen();
+              viewScroll.scrollBottom(true);
+            });
+          }, 2000);
 
-        //});
+        });
       };
 
     }

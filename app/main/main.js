@@ -55,5 +55,10 @@ angular.module('main', [
         url: '/conversation',
         templateUrl: 'main/templates/conversation.html',
         controller: 'conversationCtrl'
+      })
+      .state('events', {
+        url: '/events',
+        templateUrl: 'main/templates/events.html',
+        controller: 'eventsCtrl'
       });
   });
