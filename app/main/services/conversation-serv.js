@@ -4,7 +4,7 @@ angular.module('main')
     function($http, $q, $log) {
       var me = {};
 
-      var endpoint = 'http://192.168.1.3:3004/messages/';
+      var endpoint = 'http://192.168.1.3:3004/conversations/';
 
       me.getUserMessages = function(d) {
 

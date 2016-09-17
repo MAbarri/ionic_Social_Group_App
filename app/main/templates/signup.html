@@ -1,5 +1,5 @@
 <ion-modal-view>
-    <ion-header-bar class="bar bar-header bar-positive">
+    <ion-header-bar class="bar bar-header bar-dark">
         <h1 class="title">Create New Account</h1>
         <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
     </ion-header-bar>
@@ -10,7 +10,7 @@
 
                 <input ng-model="user.email" type="text">
             </label>
-            <label class="item item-input">aaaaaaaa
+            <label class="item item-input">
                 <span class="input-label">Passsword</span>
                 <input ng-model="user.password" type="password">
             </label>
@@ -19,7 +19,7 @@
                 <input ng-model="user.displayname" type="text">
 
             </label>
-            <button class="button button-full button-positive" ng-click="createUser(user)">Create</button>
+            <button class="button button-full gold-background" ng-click="createUser(user)">Create</button>
         </div>
     </ion-content>
 </ion-modal-view>
