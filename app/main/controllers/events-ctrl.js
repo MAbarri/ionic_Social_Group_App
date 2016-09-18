@@ -4,6 +4,7 @@ angular.module('main')
     function($scope, $rootScope, $state, $stateParams, $log,$ionicModal,$ionicSlideBoxDelegate,eventsService) {
 
       $scope.items = [];
+      $scope.doneLoading=false;
 
       init();
 
@@ -14,6 +15,7 @@ angular.module('main')
       function init(){
         eventsService.all().then(function (response) {
           $scope.items = response.data;
+          $scope.doneLoading=true;
         });
       }
 

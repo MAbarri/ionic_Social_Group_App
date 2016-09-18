@@ -60,5 +60,10 @@ angular.module('main', [
         url: '/events',
         templateUrl: 'main/templates/events.html',
         controller: 'eventsCtrl'
+      })
+      .state('topPosts', {
+        url: '/top-posts',
+        templateUrl: 'main/templates/top-posts.html',
+        controller: 'topPostsCtrl'
       });
   });

@@ -1,41 +1,27 @@
 <ion-view view-title="La gentillesse Events">
   <ion-content>
 
-      <ion-list>
-
-         <ion-item ng-repeat="item in items" class="item item-text-wrap">
-          <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.text }}</p>
+    <div class="loader-center" ng-if="!doneLoading">
+      <div class="loader">
+        <i class="icon ion-loading-c"></i>
+      </div>
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="item in items" class="item item-text-wrap">
+        <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">
+          <h2>{{ item.title }}</h2>
+          <p>{{ item.text }}</p>
+        </div>
+        <div class="item-expand-footer">
+          <div ng-click="toggleItem(item)" class="half-width">
+            <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i> {{ isItemShown(item) ? 'Less' : 'More' }}
           </div>
-          <div class="item-expand-footer">
-            <div ng-click="toggleItem(item)" class="half-width">
-              <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
-              {{ isItemShown(item) ? 'Less' : 'More' }}
-            </div>
-            <div ng-if="item.relatedPictures.length>0" ng-click="openModal(item)" class=" pull-right event-related-pics-button half-width">
-              <i class="icon ion-images pull-right"></i>
-            </div>
+          <div ng-if="item.relatedPictures.length>0" ng-click="openModal(item)" class=" pull-right event-related-pics-button half-width">
+            <i class="icon ion-images pull-right"></i>
           </div>
-        </ion-item>
+        </div>
+      </ion-item>
 
-      </ion-list>
-      <div class="card">
-              <div class="item item-divider">
-                  Fullscreen images + Slide Box
-              </div>
-              <div class="item item-text-wrap">
-                  <div class="button-bar">
-                      <a class="button" ng-click="openModal()">Show images from start</a>
-                  </div>
-              </div>
-              <div class="item item-text-wrap">
-                  <div class="button-bar">
-                      <a class="button" ng-click="goToSlide(1)">Show second imagen</a>
-                      <a class="button" ng-click="goToSlide(2)">Show third imagen</a>
-                  </div>
-              </div>
-          </div>
-
-    </ion-content>
+    </ion-list>
+  </ion-content>
 </ion-view>

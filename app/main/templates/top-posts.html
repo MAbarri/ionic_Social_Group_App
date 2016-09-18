@@ -1,0 +1,42 @@
+<ion-view view-title="Weekly Top Posts">
+  <ion-content>
+    <div class="card">
+      <div class="item item-divider">
+        Select the Date range you want to checkout
+      </div>
+      <div class="item item-text-wrap">
+        <div class="item range range-positive">
+          {{selectedDate}}
+          <input type="range" name="volume" ng-change="rangeChange()" min="0" max="7" ng-model="data.rangeValue" class="range-backgroud-white">
+          {{today}}
+        </div>
+      </div>
+    </div>
+
+    <div class="loader-center" ng-if="!doneLoading">
+      <div class="loader">
+        <i class="icon ion-loading-c"></i>
+      </div>
+    </div>
+
+    <div class="list card">
+      <div class="item" ng-repeat="item in items">
+        <div class="item-avatar">
+          <img src="main/assets/images/{{item.avatar}}.png">
+          <h2>{{item.owner}}</h2>
+          <p>{{item.date}}</p>
+        </div>
+
+        <div class="item-body">
+          <img ng-if="item.image" class="full-image" src="main/assets/images/{{item.image}}.png">
+          <p>{{item.content}}
+          </p>
+          <p>
+            <a href="#" class="subdued">{{item.likes}} Like</a>
+            <a href="#" class="subdued">{{item.comments}} Comments</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
