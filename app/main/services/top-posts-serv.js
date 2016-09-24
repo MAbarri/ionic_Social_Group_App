@@ -1,17 +1,17 @@
 'use strict';
 angular.module('main')
-  .service('topPostsService', function ($log, $timeout, $http) {
+  .service('topPostsService', function ($log, $timeout, $http, DEV_CONSTANTS) {
     $log.log('topPostsService Loading');
 
     return {
       all: function () {
-        return $http.get('http://192.168.1.3:3004/topPosts');
+        return $http.get(DEV_CONSTANTS.SERVER_URL+'topPosts');
       },
       remove: function (chatId) {
-        return $http.delete('http://192.168.1.3:3004/topPosts/' + chatId);
+        return $http.delete(DEV_CONSTANTS.SERVER_URL+'topPosts/' + chatId);
       },
       get: function (chatId) {
-        return $http.get('http://192.168.1.3:3004/topPosts/' + chatId);
+        return $http.get(DEV_CONSTANTS.SERVER_URL+'topPosts/' + chatId);
       }
     };
 

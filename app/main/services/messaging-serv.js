@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-  .service('Messaging', function ($log, $timeout, $http) {
+  .service('Messaging', function ($log, $timeout, $http, DEV_CONSTANTS) {
     $log.log('MessagingService Loading');
 
     // some initial data
@@ -20,13 +20,13 @@ angular.module('main')
 
     return {
       all: function () {
-        return $http.get('http://192.168.1.3:3004/chats');
+        return $http.get(DEV_CONSTANTS.SERVER_URL+'chats');
       },
       remove: function (chatId) {
-        return $http.delete('http://192.168.1.3:3004/chats' + chatId);
+        return $http.delete(DEV_CONSTANTS.SERVER_URL+'chats' + chatId);
       },
       get: function (chatId) {
-        return $http.get('http://192.168.1.3:3004/chats' + chatId);
+        return $http.get(DEV_CONSTANTS.SERVER_URL+'chats' + chatId);
       }
     };
 

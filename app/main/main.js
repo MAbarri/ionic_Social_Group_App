@@ -65,5 +65,12 @@ angular.module('main', [
         url: '/top-posts',
         templateUrl: 'main/templates/top-posts.html',
         controller: 'topPostsCtrl'
+      })
+      .state('gallery', {
+        url: '/gallery',
+        templateUrl: 'main/templates/gallery.html',
+        controller: 'galleryCtrl'
       });
-  });
+  })
+  .constant("DEV_CONSTANTS",{
+    "SERVER_URL":"http://192.168.1.6:3004/"});

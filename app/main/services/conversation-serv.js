@@ -1,10 +1,10 @@
 'use strict';
 angular.module('main')
-  .factory('conversationService', ['$http', '$q', '$log',
-    function($http, $q, $log) {
+  .factory('conversationService', ['$http', '$q', '$log','DEV_CONSTANTS',
+    function($http, $q, $log,DEV_CONSTANTS) {
       var me = {};
 
-      var endpoint = 'http://192.168.1.3:3004/conversations/';
+      var endpoint = DEV_CONSTANTS.SERVER_URL+'conversations/';
 
       me.getUserMessages = function(d) {
 

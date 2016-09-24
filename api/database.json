@@ -3,32 +3,32 @@
     {
       "id": 2,
       "face": "adam",
-      "name": "MERCEDES",
-      "lastText": "MERCEDES"
+      "name": "Adam",
+      "lastText": "Hey man"
     },
     {
       "id": 2,
       "face": "ben",
-      "name": "MERCEDES",
-      "lastText": "MERCEDES"
+      "name": "Ben",
+      "lastText": "You rock"
     },
     {
       "id": 2,
       "face": "max",
-      "name": "MERCEDES",
-      "lastText": "MERCEDES"
+      "name": "Max",
+      "lastText": "this is a message"
     },
     {
       "id": 2,
       "face": "mike",
-      "name": "MERCEDES",
-      "lastText": "MERCEDES"
+      "name": "Mike",
+      "lastText": "Yo"
     },
     {
       "id": 2,
       "face": "perry",
-      "name": "MERCEDES",
-      "lastText": "MERCEDES"
+      "name": "Perry",
+      "lastText": "Perryy"
     }
   ],
   "conversations": [
