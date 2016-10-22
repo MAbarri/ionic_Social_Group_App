@@ -14,8 +14,8 @@ var eslint = function (fail) {
   return function () {
     return gulp.src(paths.jsFiles.concat(paths.karma).concat(paths.protractor))
       .pipe($.eslint())
-      .pipe($.eslint.format())
-      .pipe($.if(fail, $.eslint.failOnError()));
+      .pipe($.eslint.format());
+      // .pipe($.if(fail, $.eslint.failOnError()));
   };
 };
 gulp.task('eslint', eslint());

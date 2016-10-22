@@ -4,7 +4,8 @@ angular.module('main', [
     'ngCordova',
     'ui.router',
     'monospaced.elastic',
-    'angularMoment'
+    'angularMoment',
+    'ion-gallery'
     // TODO: load other modules selected during generation
   ])
   .config(function($stateProvider, $urlRouterProvider) {
@@ -72,5 +73,6 @@ angular.module('main', [
         controller: 'galleryCtrl'
       });
   })
-  .constant("DEV_CONSTANTS",{
-    "SERVER_URL":"http://192.168.1.6:3004/"});
+  .constant("DEV_CONSTANTS", {
+    "SERVER_URL": "http://192.168.1.5:3004/"
+  });
