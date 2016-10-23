@@ -1,5 +1,18 @@
-<ion-view view-title="Photo Editor">
-  <ion-content>
-    <ion-gallery ion-gallery-items="items" ion-gallery-toggle="false"></ion-gallery>
-  </ion-content>
+<ion-view view-title="Gallery">
+<ion-content ng-init="loadImages()">
+    <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+        <div class="col col-25" ng-if="$index < images.length" ng-click="openModal(images[$index].id)">
+            <img ng-src="main/assets/images/{{images[$index].src}}.png" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 1 < images.length" ng-click="openModal(images[$index+1].id)">
+            <img ng-src="main/assets/images/{{images[$index + 1].src}}.png" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 2 < images.length" ng-click="openModal(images[$index+2].id)">
+            <img ng-src="main/assets/images/{{images[$index + 2].src}}.png" width="100%" />
+        </div>
+        <div class="col col-25" ng-if="$index + 3 < images.length" ng-click="openModal(images[$index+3].id)">
+            <img ng-src="main/assets/images/{{images[$index + 3].src}}.png" width="100%" />
+        </div>
+    </div>
+</ion-content>
 </ion-view>

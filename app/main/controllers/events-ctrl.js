@@ -90,5 +90,8 @@ angular.module('main')
       $scope.slideChanged = function(index) {
         $scope.slideIndex = index;
       };
+      $scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        $scope.modal.remove();
+      });
     }
   ]);
