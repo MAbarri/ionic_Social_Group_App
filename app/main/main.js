@@ -62,6 +62,11 @@ angular.module('main', [
         templateUrl: 'main/templates/events.html',
         controller: 'eventsCtrl'
       })
+      .state('eventsAdmin', {
+        url: '/eventsAdmin',
+        templateUrl: 'main/templates/events-admin.html',
+        controller: 'eventsAdminCtrl'
+      })
       .state('topPosts', {
         url: '/top-posts',
         templateUrl: 'main/templates/top-posts.html',
@@ -74,5 +79,5 @@ angular.module('main', [
       });
   })
   .constant("DEV_CONSTANTS", {
-    "SERVER_URL": "http://192.168.1.5:3004/"
+    "SERVER_URL": "http://192.168.1.2:3004/"
   });
